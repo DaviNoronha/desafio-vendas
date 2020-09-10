@@ -54,5 +54,14 @@
 @stop
 
 @section('js')
-
+    <script>
+        function testeAlert() {
+            Swal.fire(
+                'Good job!',
+                'You clicked the button!',
+                'success'
+                )
+        }
+    </script>
+        
 @stop
