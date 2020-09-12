@@ -10,4 +10,10 @@ class Fabricante extends Model
         "nome",
         "site"
     ];
+
+    public function produtos()
+    {
+        return $this->hasMany(Produto::class);
+    }
+
 }
