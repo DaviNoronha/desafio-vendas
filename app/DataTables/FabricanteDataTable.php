@@ -42,11 +42,17 @@ class FabricanteDataTable extends DataTable
                     ->dom('Bfrtip')
                     ->orderBy(1)
                     ->buttons(
-                        Button::make('create'),
-                        Button::make('export'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
+                        Button::make('create')
+                        ->addClass('btn bg-primary')
+                        ->text('<i class="fas fa-plus mr-1"></i>Cadastrar novo'),
+
+                        Button::make('export')
+                        ->addClass('btn bg-primary')
+                        ->text('<i class="fas fa-download mr-1"></i>Exportar'),
+
+                        Button::make('print')                        
+                        ->addClass('btn bg-primary')
+                        ->text('<i class="fas fa-print mr-1"></i>Imprimir')
                     );
     }
 
