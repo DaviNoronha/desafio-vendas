@@ -8,8 +8,6 @@
 
 @section('content')
 
-    @include('flash::message')
-
     <div class="card card-primary">
         @if (isset($fabricante))
             {!! Form::model($fabricante, ['url' => route('fabricantes.update', $fabricante), 'method' => 'put']) !!}

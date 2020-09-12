@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\Fabricante;
+use App\Models\Cliente;
 use Collective\Html\FormFacade;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
@@ -10,36 +10,30 @@ use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class FabricanteDataTable extends DataTable
+class ClienteDataTable extends DataTable
 {
+
     public function dataTable($query)
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', function ($f) {
-                $acoes = link_to(route('fabricantes.edit', $f),'Editar', ['class' => 'btn btn-sm btn-primary mr-1']);
-                $acoes .= FormFacade::button('Excluir', ['class' => 'btn btn-sm btn-danger', 'onclick' => "excluir('" . route('fabricantes.destroy', $f) . "')"]);
+            ->addColumn('action', function ($c) {
+                $acoes = link_to(route('clientes.edit', $c),'Editar', ['class' => 'btn btn-sm btn-primary mr-1']);
+                $acoes .= FormFacade::button('Excluir', ['class' => 'btn btn-sm btn-danger', 'onclick' => "excluir('" . route('clientes.destroy', $c) . "')"]);
 
-                return $acoes;})
-            ->editColumn('created_at', function ($f) {
-                return $f->created_at->format('d/m/Y');
+                return $acoes;
             });
     }
 
-    public function query(Fabricante $model)
+    public function query(Cliente $model)
     {
         return $model->newQuery();
     }
 
-    /**
-     * Optional method if you want to use html builder.
-     *
-     * @return \Yajra\DataTables\Html\Builder
-     */
     public function html()
     {
         return $this->builder()
-                    ->setTableId('fabricante-table')
+                    ->setTableId('cliente-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
@@ -55,16 +49,10 @@ class FabricanteDataTable extends DataTable
 
                         Button::make('print')                        
                         ->addClass('btn bg-primary')
-                        ->text('<i class="fas fa-print mr-1"></i>Imprimir'),
-
+                        ->text('<i class="fas fa-print mr-1"></i>Imprimir')
                     );
     }
 
-    /**
-     * Get columns.
-     *
-     * @return array
-     */
     protected function getColumns()
     {
         return [
@@ -74,18 +62,13 @@ class FabricanteDataTable extends DataTable
                   ->addClass('text-center'),
             Column::make('id'),
             Column::make('nome'),
-            Column::make('site'),
-            Column::make('created_at')->title('Data de Criação'),
+            Column::make('telefone'),
+            Column::make('email'),
         ];
     }
 
-    /**
-     * Get filename for export.
-     *
-     * @return string
-     */
     protected function filename()
     {
-        return 'Fabricante_' . date('YmdHis');
+        return 'Cliente_' . date('YmdHis');
     }
 }

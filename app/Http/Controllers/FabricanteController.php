@@ -7,6 +7,7 @@ use App\Http\Requests\FabricanteRequest;
 use App\Models\Fabricante;
 use App\Services\FabricanteService;
 use Illuminate\Http\Request;
+use Throwable;
 
 class FabricanteController extends Controller
 {
@@ -56,12 +57,6 @@ class FabricanteController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Fabricante  $fabricante
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Fabricante $fabricante)
     {
         return view('fabricante.form', compact('fabricante'));
@@ -82,14 +77,12 @@ class FabricanteController extends Controller
         return back()->withInput();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Fabricante  $fabricante
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Fabricante $fabricante)
     {
-        //
+        try {
+            $fabricante->delete();
+        } catch (Throwable $th) {
+            return response('Erro ao apagar', 400);
+        }
     }
 }

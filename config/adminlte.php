@@ -240,6 +240,11 @@ return [
             'url' => 'produtos',
             'text' => 'Produtos',
             'icon' => 'fas fa-boxes'
+        ],
+        [
+            'url' => 'clientes',
+            'text' => 'Clientes',
+            'icon' => 'fas fa-user-circle'
         ]
     ],
 
@@ -340,7 +345,7 @@ return [
             ],
         ],
         'Sweetalert2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
