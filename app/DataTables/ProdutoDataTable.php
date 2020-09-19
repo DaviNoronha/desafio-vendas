@@ -55,7 +55,7 @@ class ProdutoDataTable extends DataTable
 
                         Button::make('print')                        
                         ->addClass('btn bg-primary')
-                        ->text('<i class="fas fa-print mr-1"></i>Imprimir'),
+                        ->text('<i class="fas fa-print mr-1"></i>Imprimir')
                     );
     }
 

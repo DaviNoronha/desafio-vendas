@@ -7,18 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Cliente extends Model
 {
     protected $fillable = [
-        "nome",
-        "telefone",
-        "email",
-        "cpf",
-        "cep",
-        "logradouro",
-        "bairro",
-        "localidade"
+        'nome',
+        'telefone',
+        'email',
+        'cpf',
+        'cep',
+        'logradouro',
+        'bairro',
+        'localidade'
     ];
-
-    public function produtos()
-    {
-        return $this->hasMany(Venda::class);
-    }
 }

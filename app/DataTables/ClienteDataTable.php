@@ -12,7 +12,6 @@ use Yajra\DataTables\Services\DataTable;
 
 class ClienteDataTable extends DataTable
 {
-
     public function dataTable($query)
     {
         return datatables()
@@ -40,16 +39,14 @@ class ClienteDataTable extends DataTable
                     ->orderBy(1)
                     ->buttons(
                         Button::make('create')
-                        ->addClass('btn bg-primary')
-                        ->text('<i class="fas fa-plus mr-1"></i>Cadastrar novo'),
-
+                            ->addClass('btn btn-primary')
+                            ->text('<i class="fas fa-plus-circle"></i> Cadastrar Novo'),
                         Button::make('export')
-                        ->addClass('btn bg-primary')
-                        ->text('<i class="fas fa-download mr-1"></i>Exportar'),
-
-                        Button::make('print')                        
-                        ->addClass('btn bg-primary')
-                        ->text('<i class="fas fa-print mr-1"></i>Imprimir')
+                            ->addClass('btn btn-primary')
+                            ->text('<i class="fas fa-download"></i> Exportar'),
+                        Button::make('print')
+                            ->addClass('btn btn-primary')
+                            ->text('<i class="fas fa-print"></i> Imprimir')
                     );
     }
 
@@ -60,10 +57,9 @@ class ClienteDataTable extends DataTable
                   ->exportable(false)
                   ->printable(false)
                   ->addClass('text-center'),
-            Column::make('id'),
             Column::make('nome'),
-            Column::make('telefone'),
             Column::make('email'),
+            Column::make('telefone')
         ];
     }
 

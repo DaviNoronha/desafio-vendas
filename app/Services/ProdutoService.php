@@ -27,4 +27,18 @@ class ProdutoService
             return null;
         }
     }
+    
+    public static function listaProdutos($request)
+    {
+        if (isset($request['searchTerm'])) {
+            return Produto::select('id', 'descricao as text')
+                        ->where('descricao', 'like', '%' . $request['searchTerm'] . '%')
+                        ->limit(10)
+                        ->get();
+        }
+
+        return Produto::select('id', 'descricao as text')
+                    ->limit(10)
+                    ->get();
+    }
 }

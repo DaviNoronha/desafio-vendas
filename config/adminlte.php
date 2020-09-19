@@ -245,6 +245,12 @@ return [
             'url' => 'clientes',
             'text' => 'Clientes',
             'icon' => 'fas fa-user-circle'
+        ],
+
+        [
+            'url' => 'vendas',
+            'text' => 'Vendas',
+            'icon' => 'fas fa-shopping-cart'
         ]
     ],
 

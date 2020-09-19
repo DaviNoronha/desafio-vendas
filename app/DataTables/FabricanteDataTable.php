@@ -55,7 +55,7 @@ class FabricanteDataTable extends DataTable
 
                         Button::make('print')                        
                         ->addClass('btn bg-primary')
-                        ->text('<i class="fas fa-print mr-1"></i>Imprimir'),
+                        ->text('<i class="fas fa-print mr-1"></i>Imprimir')
 
                     );
     }
@@ -75,7 +75,7 @@ class FabricanteDataTable extends DataTable
             Column::make('id'),
             Column::make('nome'),
             Column::make('site'),
-            Column::make('created_at')->title('Data de Criação'),
+            Column::make('created_at')->title('Data de Criação')
         ];
     }
 
